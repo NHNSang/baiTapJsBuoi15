@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+    <!-- Bài tập 1: Tính tiền lương nhân viên. Lương 1 ngày 100.000, Cho người nhập vào số ngày làm. Công thức tính tiền lương là lương 1 ngày * với số ngày làm
+
+        1)Input: 
+        -Lương 1 ngày 100.000
+        -Cho người dùng nhập số ngày công
+        -Công thức tính tiền lương là lương 1 ngày * với số ngày làm
+
+        2)Progress
+        -HTML
+            +Tạo thẻ h2 Tính tiền lương nhân viên
+            +Tạo thẻ const = 100.000
+            +Tạo input cho người dùng nhập số ngày làm
+            +Tạo button
+            +Tạo đoạn span gán id ra kết quả
+        -JS
+            +Dùng onclick = function cho button
+            +Tính tổng tiền với công thức đã cho
+
+        3)Output
+        -Khi nhấn vào nút Tính tiền lương thì sẽ hiện ra kết quả tổng tiền lương 
+     -->
+
+    <div class="container">
+        <div class="bt_1 text-center">
+            <h2 class="bt1_h2 text-center py-3">Bài tập 1: Tính tiền lương nhân viên</h2>
+            <p id="soLuong1Ngay">Số lương 1 ngày: 100.000VND </p>
+            <div class="mb-3">
+              <label for="" class=" form-label">Số ngày làm việc của bạn là?</label>
+              <input type="text"
+                class="bt1_input form-control" name="" id="soNgayLam" aria-describedby="helpId" placeholder="VD: 30 ngày" style="width: 40%;">
+            </div>
+            <button class="bt1_button" id="tinhTien" >Tính tiền</button>
+            <div>
+                <p class="py-2 fs-4 ">Tổng số tiền bạn nhận được là: <span id="soTienNhan" class="text-danger"></span>VND</p> 
+            </div>
+        </div>
+    </div> 
+
+    <!-- Bài 2 Viết chương trình nhập vào 5 số thực . Tính giá trị trung bình của 5 số này và xuất ra màn hình 
+        
+        1)Input: 
+        -Nhập 5 số thực
+
+        2)Progress
+        -HTML
+            +Tạo 5 input số thực 
+            +Tạo nút button
+            +Tạo nút p ra kết quả  
+        -JS
+            +Dùng onclick = function cho button
+            +Gắn const = 5
+            +Tạo các biến var cho các id của số thực và dùng công thưc / const
+            +Tạo biến var kết quả tổng 5 số thực lại
+
+        3)Output
+        -Tổng giá trị trung bình của 5 số đó  
+    -->
+
+    <div class="container">
+        <h2>Bài tập 2: Tính giá trị trung bình</h2>
+        <div class="mb-3">
+          <label for="" class="form-label">Nhập số thực</label>
+          <input type="text"
+            class="form-control" name="" id="soThuc1" aria-describedby="helpId" placeholder="Vd: 1">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Nhập số thực</label>
+            <input type="text"
+              class="form-control" name="" id="soThuc2" aria-describedby="helpId" placeholder="Vd: 2">
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Nhập số thực</label>
+            <input type="text"
+              class="form-control" name="" id="soThuc3" aria-describedby="helpId" placeholder="Vd: 3">
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Nhập số thực</label>
+            <input type="text"
+              class="form-control" name="" id="soThuc4" aria-describedby="helpId" placeholder="Vd: 4">
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Nhập số thực</label>
+            <input type="text"
+              class="form-control" name="" id="soThuc5" aria-describedby="helpId" placeholder="Vd: 5">
+          </div>
+          <button id="tinhTrungBinh">Tính trung bình</button>
+          <p>Kết quả giá trị trung bình là: <span id="ketQuaTrungBinh"></span></p>
+    </div>
+
+    <!-- Bài 3: Giá USD hiệN tại là 23.500VND. Viết chương trình quy đổi từ USD sang VND. Tính và xuất số tiền đổi ra VND 
+        
+        1)Input: 
+        -Giá USD hiệN tại là 23.500VND
+        -đổi từ USD sang VND
+
+        2)Progress
+        -HTML
+            +Tạo thẻ h2 quy đổi tiền
+            +Tạo thẻ const = 23500
+            +Tạo input cho người dùng nhập số số tiền USD
+            +Tạo button
+            +Tạo đoạn span gán id ra kết quả
+        -JS
+            +Dùng onclick = function cho button
+            +Tính tổng tiền đổi từ USD sang VND
+        
+
+        3)Output: Tính và xuất số tiền đổi ra VND
+    -->
+    
+    <div class="container">
+        <h2>Bài tập 3: Quy đổi tiền</h2>
+        <p id="giaUsd">Giá USD hiệN tại là 23.500VND</p>
+        <div class="mb-3">
+          <label for="" class="form-label">Nhập số tiền USD</label>
+          <input type="text"
+            class="form-control" name="" id="nhapSoTien" aria-describedby="helpId" placeholder="VD: 100">
+        </div>
+        <button id="quyDoi">Quy đổi</button>
+        <div>
+            <p>Tổng số tiền bạn quy đổi ra là: <span id="tongTienQuyDoi"></span> VNĐ </p>
+        </div>
+    </div>
+
+
+    <!-- Bài 4: Viết chương trình nhập vào chiều dài và chiều rộng của HCN, tính diện tích và chu vi
+
+        1)Input: 
+            +Chiều dài = ?
+            +Chiều rộng = ?
+
+        2)Progress
+        -HTML
+            +Tạo input cho chiều dài và chiều rộng
+            +Tạo button tính diện tích và chu vi
+            +Tạo P để kết quả
+        -JS
+            +Tạo onclick cho nút button tính ra kết quả với công thức diện tích
+            +Tạo onclick cho nút button tính ra kết quả với công thức tính chu vi
+
+        3)Output: Tính diện tích và chu vi hình chữ nhất
+    -->
+
+    <div class="container">
+        <h2>Bài tập 4: Tính diện tích, chu vi hình chữ nhật</h2>
+        <div class="mb-3">
+          <label for="" class="form-label">Chiều dài</label>
+          <input type="text"
+            class="form-control" name="" id="chieuDai" aria-describedby="helpId" placeholder="Vd: 4">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Chiều rông</label>
+            <input type="text"
+              class="form-control" name="" id="chieuRong" aria-describedby="helpId" placeholder="Vd: 5">
+          </div>
+          <button id="tinhDienTich">Tính diện tích</button>
+          <p>Diện tích hình chữ nhật = <span id="ketQuaDienTich"></span> m <span id="goiYdienTich"></span></p>
+          <button id="tinhChuVi">Tính chu vi</button>
+          <p>Chu vi hình chữ nhật = <span id="ketQuaChuVi"></span> m <span id="goiYchuVi"></span></p>
+
+    </div>
+
+
+    <!-- Bài 5: Viết chương trình nhập vào 1 số có 2 chữ số, Tính tổng 2 kí số vừa nhập -->
+
+    <div class="container">
+        <h2>Bài tập 5: Tính tổng 2 ký số </h2>
+        <div class="mb-3">
+          <label for="" class="form-label">Nhập số có 2 chữ số</label>
+          <input type="text"
+            class="form-control" name="" id="nhapSo" aria-describedby="helpId" placeholder="vd: 12 => 1 + 1 =3">
+        </div>
+        <button id="tinhTong2KiSo">Tính tổng </button>
+        <p>Tổng 2 kí số bạn vừa nhập có tổng là: <span id="tongHaiKiSo"></span></p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
