@@ -111,3 +111,4 @@ document.getElementById("tinhTong2KiSo").onclick = function () {
     document.getElementById("tongHaiKiSo").innerHTML = tongHaiKiSo;
 
 }
+

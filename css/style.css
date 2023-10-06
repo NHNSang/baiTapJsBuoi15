@@ -1,3 +1,7 @@
+body{
+    font-weight: 700;
+}
+
 /* Bài tậP 1 */
 .bt_1{
     width: 50%;
@@ -8,6 +12,7 @@
 }
 .bt1_h2{
     background-color: #3f51b57d;
+    border-radius: 0px 20px 0px 0px;
 }
 .bt1_input{
     width: 40%;
@@ -20,4 +25,85 @@
     height: 40px;
     width: 150px;
     border-radius: 20px;
+    font-size: 15px;
+    transition: all 0.5s;
+
+}
+.bt1_button:hover{
+    color: red;
+}
+.dom{
+    background-color: #EDF2F9;
+    height: 100vh;
+    
+}
+.dom .dom_content{
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+}
+.dom .dom_content .dom_left{
+    width: 20%;
+    flex-direction: column;
+    height: 70vh;
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 14px );
+    -webkit-backdrop-filter: blur( 14px );
+    border-radius: 20px 0px 0px 20px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.dom .dom_content .dom_left a{
+    margin: 5px;
+    text-align: center;
+}
+.dom .dom_content .dom_left a button{
+    height: 50px;
+    height: 50px;
+    width: 130px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+.dom .dom_content .dom_right {
+    width: 80%;
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 14px );
+    -webkit-backdrop-filter: blur( 14px );
+    border-radius: 0px 20px 20px 0px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.dom .dom_content .dom_right .right_name i{
+    padding: 0 10px;
+    font-size: 30px;
+    color: #101f77;
+}
+.dom .dom_content .dom_right .right_name p{
+    font-weight: 700;
+    padding-top: 12px;
+}
+
+/* Bài tập 2 */
+.bt_2{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #8080803b;
+    border-radius: 20px;
+    border: 4px solid #3f51b5bf;
+}
+.bt_2 .mb-3 .form-control{
+    width: 80%;
+    margin: 0 auto;
+}
+.right_card2{
+    padding-top: 20px;
+}
+
+/* Bài tập 3 */
+.bt_3 .mb-3 input{
+    width: 50%;
+    margin: 0 auto;
+}
+.bt_4{
+    margin: 0 auto;
 }
