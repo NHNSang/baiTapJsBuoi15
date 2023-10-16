@@ -23,26 +23,22 @@
 </head>
 
 <body>
-    <!-- Bài tập 1: Tính tiền lương nhân viên. Lương 1 ngày 100.000, Cho người nhập vào số ngày làm. Công thức tính tiền lương là lương 1 ngày * với số ngày làm
+    <!-- Bài tập 1: 
 
-        1)Input: 
-        -Lương 1 ngày 100.000
-        -Cho người dùng nhập số ngày công
-        -Công thức tính tiền lương là lương 1 ngày * với số ngày làm
+        1)Input:Number
+        -Tạo input: Điểm thi Khối A (Toán, Lýn Hoá) và Khối C (Văn, Sử, Địa)
+        -Tạo input: Điểm ưu tiên Khu Vực và Điểm ưu tiên đối tượng
+        -Tạo button
 
         2)Progress
         -HTML
-            +Tạo thẻ h2 Tính tiền lương nhân viên
-            +Tạo thẻ const = 100.000
-            +Tạo input cho người dùng nhập số ngày làm
-            +Tạo button
-            +Tạo đoạn span gán id ra kết quả
-        -JS
-            +Dùng onclick = function cho button
-            +Tính tổng tiền với công thức đã cho
 
-        3)Output
-        -Khi nhấn vào nút Tính tiền lương thì sẽ hiện ra kết quả tổng tiền lương 
+        -JS
+
+
+        3)Output: String
+        -Kết quả: Tổng điểm, thí sinh đó đậy hay rớt
+
      -->
 
     
@@ -50,9 +46,11 @@
         <div class="container">
             <div class="dom_content d-flex justify-content-sm-start">
                 <div class="dom_left d-flex">
-                    <a href="#bt1"><button class="dom_button">
+                    <a href="#bt1" id="open_bt1">
+                        <button class="dom_button active" id="button_bt1" >
                         <i class="fa-solid fa-book"></i>
-                        Bài 1</button></a>
+                        Bài 1</button>
+                    </a>
                     <a href="#bt2"><button class="dom_button">
                         <i class="fa-solid fa-book"></i>
                         Bài 2</button></a>
@@ -62,27 +60,54 @@
                     <a href="#bt4"><button class="dom_button">
                         <i class="fa-solid fa-book"></i>
                         Bài 4</button></a>
-                    <a href="#bt5"><button class="dom_button">
-                        <i class="fa-solid fa-book"></i>
-                        Bài 5</button></a>
+
                 </div>
                 <div class="dom_right">
-                    <h2 class="bt1_h2 text-center py-3">Bài tập 1: Tính tiền lương nhân viên</h2>
+                    <h2 class="bt1_h2 text-center py-3">Bài tập 1: Tính điểm kì thi trúng tuyển Khối A và Khối C
+                        <span>(Bài này e đề cho chưa cụ thể nên e xin phép tự cho con số và làm bài)</span>
+                    </h2>
                     <div class="right_name d-flex p-4 align-items-center">
                         <i class="fa-solid fa-sack-dollar"></i>
-                        <p>Tính tiền lương nhân viên. Lương 1 ngày 100.000, Cho người nhập vào số ngày làm. Công thức tính tiền lương là lương 1 ngày * với số ngày làm?</p>
+                        <p>VD:Điểm trúng tuyển  >= 5 là đậu, lưu ý nếu 1 trong 3 môn có điểm 0 thì sẽ bị điểm liệt(tức không đâu) </p>
                     </div>
-                    <div class="right_card">
+                    <div class="right_card" >
                         <div class="bt_1 text-center">
-                            <p id="soLuong1Ngay" class="py-2">-Số lương 1 ngày: 100.000VND- </p>
-                            <div class="mb-3">
-                              <label for="" class=" form-label py-2">-Số ngày làm việc của bạn là?-</label>
-                              <input type="text"
-                                class="bt1_input form-control" name="" id="soNgayLam" aria-describedby="helpId" placeholder="VD: 30 ngày" style="width: 40%;">
+                            <div class="khoiA row">
+                                <p id="tongDiemKhoiA" class="py-2">Khối A </p>
+                                <div class="mb-3 col-4">
+                                  <label for="" class=" form-label py-2">-Điểm Toán-</label>
+                                  <input type="text"
+                                    class="bt1_input form-control" name="" id="diemToan" aria-describedby="" placeholder="VD: 10" style="width: 80%;">
+                                </div>
+                                <div class="mb-3 col-4">
+                                    <label for="" class=" form-label py-2">-Điểm Lý</label>
+                                    <input type="text"
+                                      class="bt1_input form-control" name="" id="diemLy" aria-describedby="" placeholder="VD: 10" style="width: 80%;">
+                                  </div>
+                                <div class="mb-3 col-4">
+                                    <label for="" class=" form-label py-2">-Điểm Hoá</label>
+                                    <input type="text"
+                                      class="bt1_input form-control" name="" id="diemHoa" aria-describedby="" placeholder="VD: 10" style="width: 80%;">
+                                </div>
                             </div>
-                            <button class="bt1_button" id="tinhTien" >Tính tiền</button>
+                            <div class="py-3">
+                                <select  name="" id="khuVuc" style="width: 85%;">
+                                    <option value="" id="">Bạn thuộc khu vực ưu tiên nào?</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                                <select class="my-3" name="" id="doiTuong" style="width: 85%;">
+                                    <option value="">Bạn thuộc đối tượng ưu tiên nào?</option>
+                                    <option value="1">2.5</option>
+                                    <option value="2">1.5</option>
+                                    <option value="3">1</option>
+                                </select>
+                            </div>
+
+                            <button class="bt1_button" id="tinhDiem" >Tính điểm</button>
                             <div>
-                                <p class="py-2 fs-4 ">Tổng số tiền bạn nhận được là: <span id="soTienNhan" class="text-danger"></span> VND</p> 
+                                <p class="py-2 fs-4 "><span id="ketQuaKiThi" class="text-danger"></span></p> 
                             </div>
                         </div>
                     </div>
@@ -91,24 +116,24 @@
         </div>
     </section>
 
-        <!-- Bài 2 Viết chương trình nhập vào 5 số thực . Tính giá trị trung bình của 5 số này và xuất ra màn hình 
+    <!-- Bài 2  Bài tập tính tiền điện: Viết chương trình nhập vào thông tin tiêu thụ điện (tên,số KM)
+        Tín và xuất tiền trả theo Quy Tắc
+        -50KW đầu : 500d/kw
+        -50KW kế: 650d/kw
+        -100KW kế : 850d/kw
+        -150KW kế : 1100d/kw
+        -Còn lại=: 1300d/kw
         
         1)Input: 
-        -Nhập 5 số thực
 
         2)Progress
         -HTML
-            +Tạo 5 input số thực 
-            +Tạo nút button
-            +Tạo nút p ra kết quả  
+
         -JS
-            +Dùng onclick = function cho button
-            +Gắn const = 5
-            +Tạo các biến var cho các id của số thực và dùng công thưc / const
-            +Tạo biến var kết quả tổng 5 số thực lại
+
 
         3)Output
-        -Tổng giá trị trung bình của 5 số đó  
+
     -->
 
     <section class="dom" id="bt2">
@@ -127,50 +152,39 @@
                     <a href="#bt4"><button class="dom_button">
                         <i class="fa-solid fa-book"></i>
                         Bài 4</button></a>
-                    <a href="#bt5"><button class="dom_button">
-                        <i class="fa-solid fa-book"></i>
-                        Bài 5</button></a>
+
                 </div>
                 <div class="dom_right">
-                    <h2 class="bt1_h2 text-center py-3">Bài tập 2: Tính giá trị trung bình</h2>
+                    <h2 class="bt1_h2 text-center py-3">Bài 2  Bài tập tính tiền điện: Viết chương trình nhập vào thông tin tiêu thụ điện (tên,số KM)</h2>
                     <div class="right_name d-flex p-5 align-items-center">
                         <i class="fa-solid fa-solar-panel"></i>
-                        <p>Viết chương trình nhập vào 5 số thực, Tính giá trị chung bình của 5 số này và xuất ra màn hình</p>
+                        <p>        Tín và xuất tiền trả theo quy Tắc:
+                            -50KW đầu : 500d/kw,
+                            -50KW kế: 650d/kw,
+                            -100KW kế : 850d/kw,
+                            -150KW kế : 1100d/kw,
+                            -Còn lại=: 1300d/kw</p>
                     </div>
                     <div class="right_card ">
                         <div class="bt_2  text-center">
                             <div class="d-flex ">
-                                <div class="mb-3 d-flex">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Nhập số thực 1</label>
+                                <div class="mb-3">
+                                    <div class="mb-3 m-auto">
+                                        <label for="" class="form-label">Nhập tên chủ hộ</label>
                                         <input type="text"
-                                          class="form-control" name="" id="soThuc1" aria-describedby="helpId" placeholder="Vd: 1">
+                                          class="form-control" name="" id="tenKhachHang" aria-describedby="helpId" placeholder="Vd: 1">
                                       </div>
                                     <div class="mb-3 ">
-                                          <label for="" class="form-label">Nhập số thực 2</label>
+                                          <label for="" class="form-label"> Tổng điện năng tiêu thụ</label>
                                           <input type="text"
-                                            class="form-control" name="" id="soThuc2" aria-describedby="helpId" placeholder="Vd: 2">
+                                            class="form-control" name="" id="soKWh" aria-describedby="helpId" placeholder="Vd: 2">
                                         </div>
-                                    <div class="mb-3 ">
-                                          <label for="" class="form-label">Nhập số thực 3</label>
-                                          <input type="text"
-                                            class="form-control" name="" id="soThuc3" aria-describedby="helpId" placeholder="Vd: 3">
-                                        </div>
-                                    <div class="mb-3">
-                                          <label for="" class="form-label">Nhập số thực 4</label>
-                                          <input type="text"
-                                            class="form-control" name="" id="soThuc4" aria-describedby="helpId" placeholder="Vd: 4">
-                                        </div>
-                                    <div class="mb-3">
-                                          <label for="" class="form-label">Nhập số thực 5</label>
-                                          <input type="text"
-                                            class="form-control" name="" id="soThuc5" aria-describedby="helpId" placeholder="Vd: 5">
-                                        </div>
+                                
                                 </div>
                             </div>
-                            <button class="bt1_button"  id="tinhTrungBinh">Tính trung bình</button>
+                            <button class="bt1_button"  id="tinhTienDIen">Tính tiền điện</button>
                             <div>
-                                <p class="py-2 fs-4 ">Kết quả giá trị trung bình là: <span id="ketQuaTrungBinh"></span</p> 
+                                <p class="py-2 fs-4 "><span id="ketQuaGiaTienDien"></span</p> 
                             </div>
                         </div>
                     </div>
@@ -180,25 +194,30 @@
     </section>
 
 
-    <!-- Bài 3: Giá USD hiệN tại là 23.500VND. Viết chương trình quy đổi từ USD sang VND. Tính và xuất số tiền đổi ra VND 
-        
+    <!-- Bài 3: Tính thuế thu nhập cá nhân
+        -Viết chương trình nhập thông tin của 1 cá nhân (Họ và tên, tổng thu nhập của 1 năm, số người phụ thuộc). Tính và suất thuế thu nhập cá nhân phải trả theo quy định
+        -Công thức: Tiền thuế = tông thu nhập cá nhân - 4tr - Số người bị phụ thuộc * 1.6tr
+        Biết:
+        Thu nhập triệu thuế (triệu):
+        -Đến 60 thuế suất 5%
+        -Trên 60 đến 120 thuế suất 10%
+        -Trên 120 đến 210 thuế suất 15%
+        -Trên 210 đến 384 thuế suất 20%
+        -Trên 384 đến 624 thuế suất 25%
+        -Trên 624 đến 960 thuế suất 30%
+        -Trên  960 thuế suất 35%
+
         1)Input: 
-        -Giá USD hiệN tại là 23.500VND
-        -đổi từ USD sang VND
+ 
 
         2)Progress
         -HTML
-            +Tạo thẻ h2 quy đổi tiền
-            +Tạo thẻ const = 23500
-            +Tạo input cho người dùng nhập số số tiền USD
-            +Tạo button
-            +Tạo đoạn span gán id ra kết quả
+
         -JS
-            +Dùng onclick = function cho button
-            +Tính tổng tiền đổi từ USD sang VND
+
         
 
-        3)Output: Tính và xuất số tiền đổi ra VND
+        3)Output: 
     -->
     
     <section class="dom" id="bt3">
@@ -217,29 +236,36 @@
                     <a href="#bt4"><button class="dom_button">
                         <i class="fa-solid fa-book"></i>
                         Bài 4</button></a>
-                    <a href="#bt5"><button class="dom_button">
-                        <i class="fa-solid fa-book"></i>
-                        Bài 5</button></a>
+
                 </div>
                 <div class="dom_right">
-                    <h2 class="bt1_h2 text-center py-3">Bài tập 3: Quy đổi tiền</h2>
+                    <h2 class="bt1_h2 text-center py-3"> Tính thuế thu nhập cá nhân</h2>
                     <div class="right_name d-flex p-4 align-items-center">
                         <i class="fa-solid fa-money-bill-1-wave"></i>
-                        <p>Giá USD hiệN tại là 23.500VND. Viết chương trình quy đổi từ USD sang VND. Tính và xuất số tiền đổi ra VND</p>
+                        <p>Công thức: Tiền thuế = tông thu nhập cá nhân - 4tr - Số người bị phụ thuộc * 1.6tr</p>
                     </div>
                     <div class="right_card">
                         <div class="bt_1 text-center">
-                            <p id="soLuong1Ngay" class="py-2">Giá USD hiệN tại là 23.500VND</p>
                             <div class="bt_3">
                                 <div class="mb-3">
-                                    <label for="" class="form-label">Nhập số tiền USD</label>
+                                    <label for="" class="form-label">Họ và Tên</label>
                                     <input type="text"
-                                      class="form-control" name="" id="nhapSoTien" aria-describedby="helpId" placeholder="VD: 100">
+                                      class="form-control" name="" id="hoVaTen" aria-describedby="helpId" placeholder="VD: 100">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Tổng thu nhập (triệu VND)</label>
+                                    <input type="text"
+                                      class="form-control" name="" id="tongThuNhap" aria-describedby="helpId" placeholder="VD: 100">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Số người phụ thuộc</label>
+                                    <input type="text"
+                                      class="form-control" name="" id="soNguoiPhuThuoc" aria-describedby="helpId" placeholder="VD: 100">
                                 </div>
                             </div>
-                            <button class="bt1_button" id="quyDoi" >Quy đổi</button>
+                            <button class="bt1_button" id="tinhThueButton" >Tính thuế</button>
                             <div>
-                                <p class="py-2 fs-4 ">Tổng số tiền bạn quy đổi ra là: <span id="tongTienQuyDoi"></span>VND</p>
+                                <p class="py-2 fs-4 "><span id="ketQuaThueThuNhap"></span></p>
                             </div>
                         </div>
                     </div>
@@ -249,22 +275,28 @@
     </section>
 
 
-    <!-- Bài 4: Viết chương trình nhập vào chiều dài và chiều rộng của HCN, tính diện tích và chu vi
+    <!-- Bài 4: Tính tiền cáp
+        -Viết chương trình tính hoá đơn khách hàng cho 1 công ty cáp. Có 2 loại khách hàng: nhà và doanh nghiệp. Có 2 mức giá tính tiền cáp
+        1)Nhà dân
+        -Phí xử lí hoá đơn: 4.5$
+        -Phí xử lí cơ bản: 20.5$
+        -Thuê kênh cao cấp: 7.5$/kênh
+        2)Doanh nghiệp
+        -Phí xử lí hoá đơn: 15$
+        -Phí xử lí cơ bản: 75$ cho tổng 10 kết nối đầu, mỗi kết nối thêm 5$ kết nối
+        -Thuê kênh cao cấp: 50$/kênh
+        =>Chương trình cho phép nhậP vào mã khách hàng, loại khách hàng, số kết nối, số kênh cao cấp. Nếu khách hàng là doanh nghiệp ô nhập số kết nối sẽ hiện lên, nếu nhập ô nhà dân thì số kết nối sẽ ẩn đi hoặc disable
 
         1)Input: 
-            +Chiều dài = ?
-            +Chiều rộng = ?
+ 
 
         2)Progress
         -HTML
-            +Tạo input cho chiều dài và chiều rộng
-            +Tạo button tính diện tích và chu vi
-            +Tạo P để kết quả
-        -JS
-            +Tạo onclick cho nút button tính ra kết quả với công thức diện tích
-            +Tạo onclick cho nút button tính ra kết quả với công thức tính chu vi
 
-        3)Output: Tính diện tích và chu vi hình chữ nhất
+        -JS
+
+
+        3)Output:
     -->
 
     <section class="dom" id="bt4">
@@ -283,38 +315,47 @@
                     <a href="#bt4"><button class="dom_button">
                         <i class="fa-solid fa-book"></i>
                         Bài 4</button></a>
-                    <a href="#bt5"><button class="dom_button">
-                        <i class="fa-solid fa-book"></i>
-                        Bài 5</button></a>
+
                 </div>
                 <div class="dom_right">
-                    <h2 class="bt1_h2 text-center py-3">Bài tập 4: Tính diện tích, chu vi hình chữ nhật</h2>
+                    <h2 class="bt1_h2 text-center py-3">Bài 4: Tính tiền cáp</h2>
                     <div class="right_name d-flex p-4 align-items-center">
                         <i class="fa-solid fa-square"></i>
-                        <p>Viết chương trình nhập vào chiều dài và chiều rộng của HCN, tính diện tích và chu vi?</p>
+                        <p>Viết chương trình tính hoá đơn khách hàng cho 1 công ty cáp. Có 2 loại khách hàng: nhà và doanh nghiệp. Có 2 mức giá tính tiền cáp</p>
                     </div>
                     <div class="right_card">
                         <div class="bt_1 text-center" style="width: 70%;">
-                            <div class="bt_4 d-flex justify-content-center">
+                            <div class="bt_4 d-flex flex-column justify-content-center">
                                 <div class="mb-3">
-                                    <label for="" class=" form-label py-2">Chiều dài</label>
+                                    <label for="" class=" form-label py-2">Mã khách hàng</label>
                                     <input type="text"
-                                      class="bt1_input form-control" name="" id="chieuDai" aria-describedby="helpId" placeholder="Vd: 4" style="width: 60%;">
+                                      class="bt1_input form-control" name="" id="maKhachHang" aria-describedby="helpId" placeholder="" style="width: 60%;">
+                                  </div>
+                                  <select  id="loaiKhachHang" style="width: 60; height: 40px; margin: 0 auto; border-radius: 15px;">
+                                    <option value="">Loại khách hàng</option>
+                                    <option value="nhaDan">Nhà Dân</option>
+                                    <option value="doanhNghiep">Doanh Nghiệp</option>
+                                </select>
+                                  <div class="mb-3">
+                                      <label for="" class=" form-label py-2">Số kết nối</label>
+                                      <input type="text"
+                                        class="bt1_input form-control" name="" id="soKetNoi" aria-describedby="helpId" placeholder="Vd: 5" style="width: 60%;">
                                   </div>
                                   <div class="mb-3">
-                                      <label for="" class=" form-label py-2">Chiều rộng</label>
-                                      <input type="text"
-                                        class="bt1_input form-control" name="" id="chieuRong" aria-describedby="helpId" placeholder="Vd: 5" style="width: 60%;">
-                                  </div>
+                                    <label for="" class=" form-label py-2">Số kênh cao cấp</label>
+                                    <input type="text"
+                                      class="bt1_input form-control" name="" id="soKenhCaoCap" aria-describedby="helpId" placeholder="Vd: 5" style="width: 60%;">
+                                </div>
                             </div>
-                            <button class="bt1_button" id="tinhDienTich" >Tính diện tích</button>
-                            <div>
-                                <p class="py-2 fs-4 ">Diện tích hình chữ nhật = <span id="ketQuaDienTich"></span> m <span id="goiYdienTich"></span></p> 
+                            <button class="bt1_button" id="tinhHoaDon" >Tính hoá đơn</button>
+                            <div id="ketQuaBaiTap4" class="anBaiTap">
+                                <h2>Kết Quả Hoá Đơn</h2>
+                                <p>Phí Xử Lý Hoá Đơn: <span id="phiXuLyHoanDon"></span></p>
+                                <p>Phí Xử Lý Cơ Bản: <span id="phiXuLyCoBan"></span></p>
+                                <p>Thuê Kênh Cao Cấp: <span id="thueKenhCaoCap"></span></p>
+                                <p>Tổng Tiền: <span id="tongTien"></span></p>
                             </div>
-                            <button class="bt1_button" id="tinhChuVi">Tính chu vi</button>
-                            <div>
-                                <p class="py-2 fs-4 ">Chu vi hình chữ nhật = <span id="ketQuaChuVi"></span> m <span id="goiYchuVi"></span></p> 
-                            </div>
+
                         </div>
 
                     </div>
@@ -323,51 +364,6 @@
         </div>
     </section>
 
-    <!-- Bài 5: Viết chương trình nhập vào 1 số có 2 chữ số, Tính tổng 2 kí số vừa nhập -->
-
-    <section class="dom" id="bt5">
-        <div class="container">
-            <div class="dom_content d-flex justify-content-sm-start">
-                <div class="dom_left d-flex">
-                    <a href="#bt1"><button class="dom_button">
-                        <i class="fa-solid fa-book"></i>
-                        Bài 1</button></a>
-                    <a href="#bt2"><button class="dom_button">
-                        <i class="fa-solid fa-book"></i>
-                        Bài 2</button></a>
-                    <a href="#bt3" ><button class="dom_button">
-                        <i class="fa-solid fa-book"></i>
-                        Bài 3</button></a>
-                    <a href="#bt4"><button class="dom_button">
-                        <i class="fa-solid fa-book"></i>
-                        Bài 4</button></a>
-                    <a href="#bt5"><button class="dom_button">
-                        <i class="fa-solid fa-book"></i>
-                        Bài 5</button></a>
-                </div>
-                <div class="dom_right">
-                    <h2 class="bt1_h2 text-center py-3">Bài tập 5: Tính tổng 2 ký số</h2>
-                    <div class="right_name d-flex p-4 align-items-center">
-                        <i class="fa-solid fa-arrow-up-9-1"></i>
-                        <p>Viết chương trình nhập vào 1 số có 2 chữ số, Tính tổng 2 kí số vừa nhập</p>
-                    </div>
-                    <div class="right_card py-5">
-                        <div class="bt_1 text-center">
-                            <div class="mb-3">
-                                <label for="" class="form-label">Nhập số có 2 chữ số</label>
-                              <input type="text"
-                                class="bt1_input form-control" name="" id="nhapSo" aria-describedby="helpId" placeholder="vd: 12 => 1 + 1 =3" style="width: 40%;">
-                            </div>
-                            <button class="bt1_button" id="tinhTong2KiSo" >Tính tổng</button>
-                            <div>
-                                <p class="py-2 fs-4 ">Tổng 2 kí số bạn vừa nhập có tổng là: <span id="tongHaiKiSo"></span></p> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 

@@ -1,114 +1,148 @@
-// Bài tâp 1
-document.getElementById("tinhTien").onclick = function () {
+// Bài tập 1
+function tinhDiemUuTienKhuVuc(khuVuc) {
+    var diemUuTien = 0;
+    if (khuVuc === "A") {
+        diemUuTien = 2;
+    } else if (khuVuc === "B") {
+        diemUuTien = 1;
+    } else if (khuVuc === "C") {
+        diemUuTien = 0.5;
+    } // Nếu khuVuc không thuộc A, B, hoặc C, điểm ưu tiên sẽ là 0
 
-    const soLuong1Ngay = 100000;
-
-    var soNgayLam = document.getElementById("soNgayLam").value;
-    console.log(soNgayLam)
-
-    var tongTienBài1 = soLuong1Ngay * soNgayLam;
-    console.log(tongTienBài1)
-
-
-    document.getElementById("soTienNhan").innerHTML = tongTienBài1.toLocaleString();
-
+    return diemUuTien;
 }
+
+function tinhDiemUuTienDoiTuong(doiTuong) {
+    var diemUuTien = 0;
+    if (doiTuong === 1) {
+        diemUuTien = 2.5;
+    } else if (doiTuong === 2) {
+        diemUuTien = 1.5;
+    } else if (doiTuong === 3) {
+        diemUuTien = 0.5;
+    } // Cộng thêm điểm ưu tiên đối tượng nếu ko chọn trả kết quả bằng 0
+
+    return diemUuTien;
+}
+
+function kiemTraKetQua(diemChuan, diemToan, diemLy, diemHoa, khuVuc, doiTuong) {
+    var diemUuTienKhuVuc = tinhDiemUuTienKhuVuc(khuVuc);
+    var diemUuTienDoiTuong = tinhDiemUuTienDoiTuong(doiTuong);
+    var diemTrungBinh = (diemToan + diemLy + diemHoa) / 3 + diemUuTienKhuVuc + diemUuTienDoiTuong;
+
+    if (diemTrungBinh >= diemChuan && diemToan > 0 && diemLy > 0 && diemHoa > 0) {
+        return ["Đậu", diemTrungBinh];
+    } else {
+        return ["Rớt", diemTrungBinh];
+    }
+}
+document.getElementById("tinhDiem").onclick = function(){
+    // Nhập thông tin
+    var diemChuan = 5; // Điểm chuẩn của hội đồng
+    var diemToan = document.getElementById("diemToan").value*1;   // Điểm Toán
+    var diemLy = document.getElementById("diemLy").value*1;     // Điểm Lý
+    var diemHoa = document.getElementById("diemHoa").value*1;     // Điểm Hóa
+    var khuVuc = document.getElementById("khuVuc").value*1;    // Khu vực (A, B, C, X)
+    var doiTuong = document.getElementById("doiTuong").value*1;    // Đối tượng (1, 2, 3)
+
+    // Kiểm tra kết quả
+    var ketQua = kiemTraKetQua(diemChuan, diemToan, diemLy, diemHoa, khuVuc, doiTuong);
+    document.getElementById("ketQuaKiThi").innerHTML = "Kết quả: " + ketQua[0] + " Tổng điểm đạt được: " + ketQua[1]
+    console.log("Kết quả: " + ketQua[0]);
+    console.log("Tổng điểm đạt được: " + ketQua[1]);
+}
+
 
 // Bài tập 2
-document.getElementById("tinhTrungBinh").onclick = function () {
+function tinhGiaTienDien(soKWh) {
+    var giaTien = 0;
 
-    const soChia = 5;
+    if (soKWh <= 50) {
+        giaTien = soKWh * 500;
+    } else if (soKWh <= 100) {
+        giaTien = 50 * 500 + (soKWh - 50) * 650;
+    } else if (soKWh <= 150) {
+        giaTien = 50 * 500 + 50 * 650 + (soKWh - 100) * 850;
+    } else {
+        giaTien = 50 * 500 + 50 * 650 + 50 * 850 + (soKWh - 150) * 1100;
+    }
 
-    // Số thực 1
-    var soThuc1 = document.getElementById("soThuc1").value
+    return giaTien;
+}
 
-    var ketQuaSoThuc1 = soThuc1 / soChia;
-    console.log(ketQuaSoThuc1)
-
-    // Số thực 2
-    var soThuc2 = document.getElementById("soThuc2").value
-
-    var ketQuaSoThuc2 = soThuc2 / soChia;
-    console.log(ketQuaSoThuc2)
-
-    // Số thực 3
-    var soThuc3 = document.getElementById("soThuc3").value
-
-    var ketQuaSoThuc3 = soThuc3 / soChia;
-    console.log(ketQuaSoThuc3)
-
-    // Số thực 4
-    var soThuc4 = document.getElementById("soThuc4").value
-
-    var ketQuaSoThuc4= soThuc4 / soChia;
-    console.log(ketQuaSoThuc4)
+document.getElementById("tinhTienDIen").onclick = function () {
+    var tenKhachHang = document.getElementById("tenKhachHang").value;
+    var soKWh = Number(document.getElementById("soKWh").value);
     
-    // Số thực 5
-    var soThuc5 = document.getElementById("soThuc5").value
+    var giaTien = tinhGiaTienDien(soKWh);
 
-    var ketQuaSoThuc5= soThuc5 / soChia;
-    console.log(ketQuaSoThuc5)
+    document.getElementById("ketQuaGiaTienDien").innerHTML = "Tiện điện của bạn là " + giaTien.toLocaleString() + " VND";
+};
 
-    var ketQuaTrungBinh = ketQuaSoThuc1 + ketQuaSoThuc2 + ketQuaSoThuc3 + ketQuaSoThuc4 + ketQuaSoThuc5;
+// Bài 3
+function tinhThueThuNhap(tongThuNhap, soNguoiPhuThuoc) {
+    var mienThue = 4; // Số tiền miễn thuế 4 triệu VND
+    var mienThueNguoiPhuThuoc = 1.6; // Số tiền miễn thuế cho mỗi người phụ thuộc 1.6 triệu VND
 
-    document.getElementById("ketQuaTrungBinh").innerHTML = ketQuaTrungBinh;
+    // Tính thuế thu nhập cá nhân
+    var thuNhapChiuThue = tongThuNhap - mienThue - soNguoiPhuThuoc * mienThueNguoiPhuThuoc;
+    var thueThuNhap = 0;
 
+    if (thuNhapChiuThue <= 60) {
+        thueThuNhap = thuNhapChiuThue * 0.05;
+    } else if (thuNhapChiuThue <= 120) {
+        thueThuNhap = 60 * 0.05 + (thuNhapChiuThue - 60) * 0.10;
+    } else if (thuNhapChiuThue <= 210) {
+        thueThuNhap = 60 * 0.05 + 60 * 0.10 + (thuNhapChiuThue - 120) * 0.15;
+    } else if (thuNhapChiuThue <= 384) {
+        thueThuNhap = 60 * 0.05 + 60 * 0.10 + 90 * 0.15 + (thuNhapChiuThue - 210) * 0.20;
+    } else if (thuNhapChiuThue <= 624) {
+        thueThuNhap = 60 * 0.05 + 60 * 0.10 + 90 * 0.15 + 174 * 0.20 + (thuNhapChiuThue - 384) * 0.25;
+    } else if (thuNhapChiuThue <= 960) {
+        thueThuNhap = 60 * 0.05 + 60 * 0.10 + 90 * 0.15 + 174 * 0.20 + 240 * 0.25 + (thuNhapChiuThue - 624) * 0.30;
+    } else {
+        thueThuNhap = 60 * 0.05 + 60 * 0.10 + 90 * 0.15 + 174 * 0.20 + 240 * 0.25 + 336 * 0.30 + (thuNhapChiuThue - 960) * 0.35;
+    }
+
+    return thueThuNhap;
 }
 
-// Bài tập 3
-document.getElementById("quyDoi").onclick = function () {
 
-    const giaUsd = 23500;
+document.getElementById("tinhThueButton").onclick = function () {
+    var hoVaTen = document.getElementById("hoVaTen").value;
+    var tongThuNhap = parseFloat(document.getElementById("tongThuNhap").value);
+    var soNguoiPhuThuoc = parseInt(document.getElementById("soNguoiPhuThuoc").value);
 
-    var nhapSoTien = document.getElementById("nhapSoTien").value;
+    var thueThuNhap = tinhThueThuNhap(tongThuNhap, soNguoiPhuThuoc);
 
-    var tongTienBai2 = giaUsd * nhapSoTien;
-    console.log(tongTienBai2)
-
-    document.getElementById("tongTienQuyDoi").innerHTML = tongTienBai2.toLocaleString();
-}
+    document.getElementById("ketQuaThueThuNhap").innerHTML = thueThuNhap + " triệu VND";
+};
 
 // Bài tập 4
-document.getElementById("tinhDienTich").onclick = function () {
+document.getElementById("loaiKhachHang").addEventListener("change", function() {
+    var loaiKhachHang = document.getElementById("loaiKhachHang").value;
+    var soKetNoiInput = document.getElementById("soKetNoi");
 
-    var chieuDai = document.getElementById("chieuDai").value;
+    if (loaiKhachHang === "doanhNghiep") {
+        soKetNoiInput.removeAttribute("disabled");
+    } else {
+        soKetNoiInput.disabled = true;
+        soKetNoiInput.value = "";
+    }
+});
+document.getElementById("tinhHoaDon").addEventListener("click", function() {
+    var loaiKhachHang = document.getElementById("loaiKhachHang").value;
+    var soKetNoi = parseFloat(document.getElementById("soKetNoi").value) || 0;
+    var soKenhCaoCap = parseFloat(document.getElementById("soKenhCaoCap").value) || 0;
 
-    var chieuRong = document.getElementById("chieuRong").value;
+    var phiXuLyHoanDon = (loaiKhachHang === "nhaDan") ? 4.5 : 15;
+    var phiXuLyCoBan = (loaiKhachHang === "nhaDan") ? 20.5 : 75 + 5 * (soKetNoi - 10);
+    var thueKenhCaoCap = (soKenhCaoCap * 7.5) + ((loaiKhachHang === "doanhNghiep") ? soKenhCaoCap * 50 : 0);
 
-    var congThucDienTich = chieuDai * chieuRong
-
-    document.getElementById("ketQuaDienTich").innerHTML = congThucDienTich;
-
-    document.getElementById("goiYdienTich").innerHTML = "(Công thức: dài * rộng)";
-}
-document.getElementById("tinhChuVi").onclick = function () {
-
-    var chieuDai = document.getElementById("chieuDai").value;
-
-    var chieuRong = document.getElementById("chieuRong").value;
-
-    var congThucChuVi = (chieuDai + chieuRong) * 2
-
-    document.getElementById("ketQuaChuVi").innerHTML = congThucChuVi;
-
-    document.getElementById("goiYchuVi").innerHTML = "(Công thức: (dài + rộng) * 2)";
-}
-
-// Bài tập 5
-document.getElementById("tinhTong2KiSo").onclick = function () {
-    
-
-    var nhapSo = document.getElementById("nhapSo").value;
-
-    var soHangChuc = Math.floor(nhapSo / 10);
-    console.log(soHangChuc)
-
-    var soHangDonVi = Math.floor(nhapSo % 10);
-    console.log(soHangDonVi);
-
-    var tongHaiKiSo = soHangChuc + soHangDonVi;
-
-    document.getElementById("tongHaiKiSo").innerHTML = tongHaiKiSo;
-
-}
-
+    var tongTien = phiXuLyHoanDon + phiXuLyCoBan + thueKenhCaoCap;
+    document.querySelector(".anBaiTap").style.display = "block";
+    document.getElementById("phiXuLyHoanDon").textContent = `$${phiXuLyHoanDon.toFixed(2)}`;
+    document.getElementById("phiXuLyCoBan").textContent = `$${phiXuLyCoBan.toFixed(2)}`;
+    document.getElementById("thueKenhCaoCap").textContent = `$${thueKenhCaoCap.toFixed(2)}`;
+    document.getElementById("tongTien").textContent = `$${tongTien.toFixed(2)}`;
+});

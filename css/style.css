@@ -1,6 +1,21 @@
 body{
     font-weight: 700;
 }
+.bt_content{
+    overflow: hidden;
+    border: 1px solid;
+}
+.bt_content .sang_1{
+    transform: translateX(150%);
+}
+.bt_content .sang_2{
+    transform: translateX(150%);
+}
+
+
+
+
+
 
 /* Bài tậP 1 */
 .bt_1{
@@ -106,4 +121,8 @@ body{
 }
 .bt_4{
     margin: 0 auto;
+}
+/* Bài tâp 4 */
+.anBaiTap{
+    display: none;
 }
